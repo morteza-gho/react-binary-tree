@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+ /*********************  Binary Tree *********************/
+
+.tree {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.node {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.node::before {
+  content: '';
+  position: absolute;
+  border: 1px solid black;
+  top: -20px;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 20px;
+}
+
+.node .value {
+  margin: 0;
+  font-weight: bold;
+}
+
+.node .left {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: calc(50% - 50px);
+}
+
+.node .right {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: calc(50% + 50px);
+}
+
+@media screen and (max-width: 768px) {
+  .tree {
+    flex-direction: column;
+  }
+
+  .node::before {
+    content: none;
+  }
+
+  .node .left {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  .node .right {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+}
+
