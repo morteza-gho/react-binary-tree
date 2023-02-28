@@ -32,13 +32,12 @@ function renderNode(node) {
 }
 
 function BinaryTree() {
-  
+
   const [root, setRoot] = useState(null);
   const [input, setInput] = useState('');
 
   useEffect(() => {
     const array = input.split(' ').map(String);
-    console.log(array)
     const rootNode = createNode(0, array);
     setRoot(rootNode);
   }, [input]);
@@ -52,14 +51,13 @@ function BinaryTree() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter nodes for binary tree:
-          <input type="text" value={input} onChange={handleInputChange} />
-        </label>
-        <button type="submit">Create Tree</button>
-      </form>
+    <div className='wrapper'>
+
+      <h1 className='title'>Enter names and use space to create nodes</h1>
+      <input type="text" value={input} onChange={handleInputChange} placeholder="Enter Name..." />
+
+      {/* <button type="submit">Create Tree</button> */}
+
       <div className="tree">{renderNode(root)}</div>
     </div>
   );
