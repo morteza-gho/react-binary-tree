@@ -51,7 +51,7 @@ const BinaryTree = () => {
       <h1 className='title'>Enter names and use space to create nodes</h1>
       <input type="text" value={input} onChange={handleInputChange} placeholder="Enter Name..." />
 
-      {root.value ? <div className="tree">{renderNode(root)}</div> : null}
+      {root && root.value ? <div className="tree">{renderNode(root)}</div> : null}
     </div>
   );
 }
