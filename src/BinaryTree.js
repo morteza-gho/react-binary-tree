@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -8,7 +7,7 @@ class Node {
   }
 }
 
-function createNode(index, array) {
+const createNode = (index, array) => {
   if (index >= array.length || array[index] === null) {
     return null;
   }
@@ -18,7 +17,7 @@ function createNode(index, array) {
   return node;
 }
 
-function renderNode(node) {
+const renderNode = (node) => {
   if (node === null) {
     return null;
   }
@@ -31,7 +30,7 @@ function renderNode(node) {
   );
 }
 
-function BinaryTree() {
+const BinaryTree = () => {
 
   const [root, setRoot] = useState(null);
   const [input, setInput] = useState('');
@@ -46,19 +45,13 @@ function BinaryTree() {
     setInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <div className='wrapper'>
 
       <h1 className='title'>Enter names and use space to create nodes</h1>
       <input type="text" value={input} onChange={handleInputChange} placeholder="Enter Name..." />
 
-      {/* <button type="submit">Create Tree</button> */}
-
-      <div className="tree">{renderNode(root)}</div>
+      {root.value ? <div className="tree">{renderNode(root)}</div> : null}
     </div>
   );
 }
